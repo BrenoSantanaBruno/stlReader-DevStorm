@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Upload STL</title>
+    <meta charset="UTF-8">
+    <title>File Upload</title>
 </head>
 <body>
-<h1>STL Upload and Processing</h1>
-
-<div>
-    <h2>Results</h2>
-    <p>
-        <span id="area">Total Area: {{.TotalArea}}</span>
-    </p>
-    <p>
-        <span id="numbers">Number of Triangles: {{.NumTriangles}}</span>
-    </p>
-</div>
+<h1>STL File Upload</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="arquivo" id="arquivo" accept=".stl">
+    <input type="submit" value="Send STL">
+</form>
 </body>
-
 </html>

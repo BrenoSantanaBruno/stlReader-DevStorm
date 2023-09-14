@@ -1,19 +1,19 @@
-package stlreader
+package stl
 
 import (
 	"bufio"
 	"fmt"
-	"io"
 	"math"
+	"mime/multipart"
 	"strings"
 )
 
-// Calculate Triangle Area calculate the area of a triangle based on its vertices
-func ProcessSTLFile(reader io.Reader) (float64, int, error) {
-	totalArea := 0.0
+// ProcessSTLFile processa o arquivo STL e retorna a área total e o número de triângulos.
+func ProcessSTLFile(file multipart.File) (float64, int, error) {
+	areaTotal := 0.0
 	numTriangles := 0
 
-	scanner := bufio.NewScanner(reader)
+	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
@@ -34,7 +34,7 @@ func ProcessSTLFile(reader io.Reader) (float64, int, error) {
 			}
 
 			area := CalculateTriangleArea(vertices)
-			totalArea += area
+			areaTotal += area
 		}
 	}
 
@@ -42,10 +42,10 @@ func ProcessSTLFile(reader io.Reader) (float64, int, error) {
 		return 0, 0, err
 	}
 
-	return totalArea, numTriangles, nil
+	return areaTotal, numTriangles, nil
 }
 
-// Calculate Triangle Area calculate the area of a triangle based on its vertices.
+// CalculateTriangleArea calcula a área de um triângulo com base em seus vértices.
 func CalculateTriangleArea(vertices [3][3]float64) float64 {
 	v1 := vertices[0]
 	v2 := vertices[1]
@@ -67,7 +67,7 @@ func CalculateTriangleArea(vertices [3][3]float64) float64 {
 	return area
 }
 
-// Length calculates the magnitude of a three-dimensional vector.
+// Length calcula a magnitude de um vetor tridimensional.
 func Length(v [3]float64) float64 {
 	return math.Sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2])
 }
