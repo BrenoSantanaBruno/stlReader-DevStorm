@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload STL</title>
+</head>
+<body>
+<h1>STL Upload and Processing</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="stlFile" accept=".stl">
+    <input type="submit" value="Upload and Processing">
+</form>
+<div>
+    <h2>Results</h2>
+    <p>Total Area: {{.TotalArea}}</p>
+    <p>Number of Triangles: {{.NumTriangles}}</p>
+</div>
+</body>
+</html>
