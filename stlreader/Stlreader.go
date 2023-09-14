@@ -38,7 +38,7 @@ func CalculateSTLFileArea(fileName string) (float64, int, error) {
 				}
 			}
 
-			area := calculateTriangleArea(vertices)
+			area := CalculateTriangleArea(vertices)
 			totalArea += area
 		}
 	}
@@ -50,7 +50,7 @@ func CalculateSTLFileArea(fileName string) (float64, int, error) {
 	return totalArea, numTriangles, nil
 }
 
-func calculateTriangleArea(vertices [3][3]float64) float64 {
+func CalculateTriangleArea(vertices [3][3]float64) float64 {
 	v1 := vertices[0]
 	v2 := vertices[1]
 	v3 := vertices[2]
