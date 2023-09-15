@@ -24,16 +24,16 @@ func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
 	<!DOCTYPE html>
 <html>
 <head>
-    <title>Resultado da Análise</title>
-    <!-- Inclua o CSS do Bootstrap -->
+    <title>Analysis Result</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center">Resultado da Análise</h1>
+    <h1 class="text-center">Analysis Result</h1>
     <div class="result-container mt-4 p-4">
-        <p>Número de Triângulos: {{.NumTriangles}}</p>
-        <p>Área Total: {{.AreaTotal}}</p>
+        <p>Numbers of Triangles: {{.NumTriangles}}</p>
+        <p>Total Area: {{.AreaTotal}}</p>
     </div>
 </div>
 </body>

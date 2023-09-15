@@ -7,25 +7,25 @@ import (
 
 func UploadFormHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Upload de Arquivo</title>
-    <!-- Inclua o CSS do Bootstrap -->
+	<!DOCTYPE html>
+	<html>
+	<head>
+       <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <h1 class="text-center">Upload de Arquivo para o Servidor Go</h1>
-        <form action="/upload" method="post" enctype="multipart/form-data" class="mt-4">
-            <div class="mb-3">
-                <input class="form-control" type="file" name="arquivo" id="arquivo" accept=".stl">
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar Arquivo</button>
-        </form>
-    </div>
-</body>
-</html>
+		<title>File Upload</title>
+	</head>
+	<body>
+		<div class="container mt-5">
+			<h1 class="text-center">Upload STL File</h1>
+    	<div class="result-container mt-4 p-4">
+				
+			<form action="/upload" method="post" enctype="multipart/form-data">
+				<input type="file" name="arquivo" id="arquivo" accept=".stl">
+				<input type="submit" value="Analysis">
+			</form>
+		</div>
+	</body>
+	</html>
 	`
 
 	t, err := template.New("form").Parse(tmpl)
