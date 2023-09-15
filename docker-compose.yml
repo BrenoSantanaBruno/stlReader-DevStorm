@@ -1,0 +1,13 @@
+version: '3'
+services:
+  react-app:
+    build:
+      context: ./challenge-client # Caminho para o diretório do seu projeto React
+    ports:
+      - "3000:3000" # Mapeie a porta 3000 do contêiner para a porta 3000 do host
+
+  go-server:
+    build:
+      context: ./challenge-server # Caminho para o diretório do seu projeto Go
+    ports:
+      - "8080:8080" # Mapeie a porta 8080 do contêiner para a porta 8080 do host
