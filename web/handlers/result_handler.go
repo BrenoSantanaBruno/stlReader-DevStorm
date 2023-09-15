@@ -22,16 +22,22 @@ func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
 
 	tmpl := `
 	<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Resultado da Análise</title>
-	</head>
-	<body>
-		<h1>Resultado da Análise</h1>
-		<p>Número de Triângulos: {{.NumTriangles}}</p>
-		<p>Área Total: {{.AreaTotal}}</p>
-	</body>
-	</html>
+<html>
+<head>
+    <title>Resultado da Análise</title>
+    <!-- Inclua o CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Resultado da Análise</h1>
+    <div class="result-container mt-4 p-4">
+        <p>Número de Triângulos: {{.NumTriangles}}</p>
+        <p>Área Total: {{.AreaTotal}}</p>
+    </div>
+</div>
+</body>
+</html>
 	`
 
 	t, err := template.New("result").Parse(tmpl)
