@@ -6,7 +6,7 @@ FROM golang:1.16 as builder
 WORKDIR /
 
 # Copy the source-code to the container
-COPY . .
+COPY .. .
 
 # Compile o aplicativo Go
 RUN go build -o main .

@@ -45,6 +45,7 @@ func ProcessSTLFile(file multipart.File) (float64, int, error) {
 	return areaTotal, numTriangles, nil
 }
 
+// TODO trannslate
 // CalculateTriangleArea calcula a área de um triângulo com base em seus vértices.
 func CalculateTriangleArea(vertices [3][3]float64) float64 {
 	v1 := vertices[0]

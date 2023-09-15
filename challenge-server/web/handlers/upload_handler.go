@@ -20,7 +20,7 @@ func UploadFormHandler(w http.ResponseWriter, r *http.Request) {
     	<div class="result-container mt-4 p-4">
 				
 			<form action="/upload" method="post" enctype="multipart/form-data">
-				<input type="file" name="arquivo" id="arquivo" accept=".stl">
+				<input type="file" name="file" id="file" accept=".stl">
 				<input type="submit" value="Analysis">
 			</form>
 		</div>
