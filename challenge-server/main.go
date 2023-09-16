@@ -9,7 +9,6 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	r.HandleFunc("/", handlers.UploadFormHandler).Methods("GET")
 	r.HandleFunc("/upload", handlers.UploadFileHandler).Methods("POST")
 
 	// Configurar as políticas de CORS
