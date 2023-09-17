@@ -1,4 +1,4 @@
-# Application Name
+# stlReader-DevStorm - Beta
 
 ## Overview
 
@@ -18,17 +18,17 @@ To get the project up and running, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/BrenoSantanaBruno/stlReader-DevStorm
 Navigate to the project directory:
 
 bash
 Copy code
-cd project-directory
+cd stlReader-DevStorm
 Build and start the Docker containers:
 
-bash
-Copy code
+```bash
 docker-compose up --build
+```
 This command will build and start the "challenge-client" and "challenge-server" containers defined in the docker-compose.yml file.
 
 Usage
@@ -46,15 +46,3 @@ If you encounter issues or have questions, refer to the project's documentation 
 
 Contributing
 Contributions are welcome! If you'd like to contribute to the project, please follow the guidelines in the project's CONTRIBUTING.md file.
-
-License
-This project is licensed under the [License Name] License - see the LICENSE file for details.
-
-Acknowledgments
-Acknowledgment 1
-Acknowledgment 2
-...
-typescript
-Copy code
-
-Please replace `<repository-url>`, `project-directory`, and other p
