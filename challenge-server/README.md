@@ -1,1 +1,0 @@
-# stlReader-DevStorm

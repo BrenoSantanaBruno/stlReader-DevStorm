@@ -8,19 +8,28 @@ import (
 )
 
 func main() {
+	// Create a new Gorilla Mux router
 	r := mux.NewRouter()
+
+	// Define a route for handling file uploads via POST requests
 	r.HandleFunc("/upload", handlers.UploadFileHandler).Methods("POST")
 
-	// Configurar as políticas de CORS
+	// Configure CORS policies
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"http://localhost:3000"},  // Substitua pelo domínio real do seu aplicativo React
-		AllowedMethods: []string{"GET", "POST", "OPTIONS"}, // Permita os métodos HTTP necessários
-		AllowedHeaders: []string{"*"},                      // Permita todos os cabeçalhos
+		// Specify the allowed origins (replace with your React app's real domain)
+		AllowedOrigins: []string{"http://localhost:3000"},
+
+		// Allow necessary HTTP methods
+		AllowedMethods: []string{"GET", "POST", "OPTIONS"},
+
+		// Allow all headers
+		AllowedHeaders: []string{"*"},
 	})
 
-	// Use o middleware CORS com seu roteador
+	// Use the CORS middleware with your router
 	handler := c.Handler(r)
 
+	// Set up an HTTP server to listen on port 8080
 	http.Handle("/", handler)
 	http.ListenAndServe(":8080", nil)
 }

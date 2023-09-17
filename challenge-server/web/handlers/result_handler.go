@@ -6,7 +6,9 @@ import (
 	"stlReader-DevStorm/stl"
 )
 
+// UploadFileHandler handles HTTP requests to upload and process an STL file.
 func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
+	// Retrieve the uploaded file from the request
 	file, _, err := r.FormFile("file")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -14,6 +16,7 @@ func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
+	// Process the STL file to calculate total area and number of triangles
 	areaTotal, numTriangles, err := stl.ProcessSTLFile(file)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -31,17 +34,17 @@ func UploadFileHandler(w http.ResponseWriter, r *http.Request) {
 		AreaTotal:    areaTotal,
 	}
 
-	// Convert the structure to JSON
+	// Convert the result structure to JSON
 	jsonResult, err := json.Marshal(result)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Set the response header to JSON
+	// Set the response header to indicate JSON content
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 
-	// Write response JSON
+	// Write the JSON response
 	w.Write(jsonResult)
 }
