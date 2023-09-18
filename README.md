@@ -21,10 +21,11 @@ To get the project up and running, follow these steps:
    git clone https://github.com/BrenoSantanaBruno/stlReader-DevStorm
 Navigate to the project directory:
 
-bash
+```bash
 Copy code
 cd stlReader-DevStorm
 Build and start the Docker containers:
+```
 
 ```bash
 docker-compose up --build
