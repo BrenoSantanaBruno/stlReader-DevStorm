@@ -16,7 +16,7 @@ func main() {
 	r := mux.NewRouter()
 
 	// Define a route for handling file uploads via POST requests
-	r.HandleFunc("/upload", handlers.UploadFileHandler).Methods("POST")
+	r.HandleFunc("/process-ascii-stl", handlers.UploadFileHandler).Methods("POST")
 
 	// Define a route for handling binary STL file processing
 	r.HandleFunc("/process-binary-stl", ProcessBinarySTLHandler).Methods("POST")
