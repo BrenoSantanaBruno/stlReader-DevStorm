@@ -6,3 +6,4 @@ Através deste comecei minha pesquisa e fui prosseguindo em baby-steps até cheg
 OBS: Gostaria de explicar que mesmo indo além do escopo, criando um front-end, não desenvolvi de forma a ser uma aplicação robusta nem atraente aos olhos do cliente final.
 Meu intuito foi demonstrar que através do Golang consegui extrair os dados do processamento dele para uma aplicação em ReactJS onde podemos interagir melhor e verificar o comportamento
 do microsistema feito em Golang.
+
