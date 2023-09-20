@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Define a File Upload component
 function FileUploadComponent({ onFileChange }) {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -13,13 +12,12 @@ function FileUploadComponent({ onFileChange }) {
   };
 
   return (
-      <div>
-        <input type="file" accept=".stl" onChange={handleFileChange} />
+      <div className="input-group mb-3">
+        <input type="file" accept=".stl" onChange={handleFileChange} className="form-control" />
       </div>
   );
 }
 
-// Define the main App component
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -28,7 +26,7 @@ function App() {
     setSelectedFile(file);
   };
 
-  const handleSubmitASCII = async () => {
+  const handleSubmit = async (url) => {
     if (!selectedFile) {
       alert('Please select a file before analyzing.');
       return;
@@ -38,40 +36,14 @@ function App() {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch('http://localhost:8080/process-ascii-stl', {
+      const response = await fetch(url, {
         method: 'POST',
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error('Error sending the ASCII STL file.');
+        throw new Error('Error sending the file.');
       }
-
-      const data = await response.json();
-      setAnalysisResult(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleSubmitBinary = async () => {
-    if (!selectedFile) {
-      alert('Please select a file before analyzing.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('file', selectedFile);
-
-    try {
-      const response = await fetch('http://localhost:8080/process-binary-stl', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Error sending the binary STL file.');
-        }
 
       const data = await response.json();
       setAnalysisResult(data);
@@ -85,15 +57,15 @@ function App() {
         <h1 className="text-center">STL File Upload - Analysis</h1>
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <div className="input-group mb-3">
-              <FileUploadComponent onFileChange={handleFileChange} />
+            <FileUploadComponent onFileChange={handleFileChange} />
+            <div className="mt-2 d-flex justify-content-between">
+              <button className="btn btn-primary" type="button" onClick={() => handleSubmit('http://localhost:8080/process-ascii-stl')}>
+                STL ASCII
+              </button>
+              <button className="btn btn-success" type="button" onClick={() => handleSubmit('http://localhost:8080/process-binary-stl')}>
+                STL Binary
+              </button>
             </div>
-            <button className="btn btn-primary" type="button" onClick={handleSubmitASCII}>
-              STL ASCII
-            </button>
-            <button className="btn btn-success mt-2" type="button" onClick={handleSubmitBinary}>
-              STL Binary
-            </button>
             {analysisResult && (
                 <div className="alert alert-success mt-3">
                   <h2>Analysis Result</h2>
