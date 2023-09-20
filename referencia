@@ -1,0 +1,8 @@
+Local onde consegui entender a lógica de um vetor 3D e sua magnitude.
+https://br.neurochispas.com/fisica/magnitude-de-um-vetor-2d-e-3d-formulas-e-exercicios/#2-como-calcular-a-magnitude-de-um-vetor
+
+Através deste comecei minha pesquisa e fui prosseguindo em baby-steps até chegar em um algoritimo eficiente e funcional.
+
+OBS: Gostaria de explicar que mesmo indo além do escopo, criando um front-end, não desenvolvi de forma a ser uma aplicação robusta nem atraente aos olhos do cliente final.
+Meu intuito foi demonstrar que através do Golang consegui extrair os dados do processamento dele para uma aplicação em ReactJS onde podemos interagir melhor e verificar o comportamento
+do microsistema feito em Golang.
